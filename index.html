@@ -3,10 +3,57 @@
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script type="text/babel">
     class Glass extends React.Component {
+        constructor() {
+            super()
+            this.state = {"backcolor": "#3f8ae1", "glasscolor": "#fc034510"}
+        }
+
+        setBackColor(e) {
+            console.log(e)
+            this.setState({backcolor: e })
+        }
+        
+        setGlassColor(e) {
+            console.log(e)
+            
+            this.setState({glasscolor: e + "66"})
+        }
         render() {
             
             return (
-                <div style={{"margin": "-8 auto auto -8", "backgroundColor": "#3F8AE1", "height": 500, "width": 1500}}></div>
+                <div>
+                    <div style={{"margin": "-8 auto auto -8", "backgroundColor": this.state.backcolor, "height": "80vh", "width": "100vw"}}></div>
+                    <div style={{"backgroundColor": this.state.glasscolor, 
+                                 "z-index": "10",
+                                 "width": "50vw",
+                                 "height": "50vh",
+                                 "transform": "rotate(10deg)",
+                                 "position": "absolute",
+                                 "box-shadow": "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+                                 "backdrop-filter": "blur( 20.0px )",
+                                 "-webkit-backdrop-filter": "blur( 20.0px )",
+                                 "border-radius": "10px",
+                                 "border": "1px solid rgba( 255, 255, 255, 0.18 )",
+                                 "top": "10vh",
+                                 "right": "25vw"}} id="glass">
+                        <h1>Glassmorphism</h1>
+                        <p>Glassmorphism is where you try to make an area look like glass using coding. So in this case, I've made an area, and I've also put some circles behind this area. Usually, what would happen is that you would not be able to see parts of these circles, but using glassmorphism, you would see the circles as if looking thorugh glass. You're also welcome to change the colors using the color inputs at the bottom of the page.</p>
+                        <p>Getting into some technical things, this was made using React, a popular Javascript library. The glass itself was mostly programmed in CSS.</p>
+                        <a href="https://reactjs.org/">Learn more about React</a>
+                        
+                    </div>
+                    <div style={{"height": "10vh", "width": "10vh", "backgroundColor": "red", "border-radius": "50%", "position": "absolute", "top": "20vh", "right": "22vw",}}></div>
+                    <div style={{"height": "10vh", "width": "10vh", "backgroundColor": "red", "border-radius": "50%", "position": "absolute", "top": "40vh", "right": "50vw",}}></div>
+                    <div style={{"height": "10vh", "width": "10vh", "backgroundColor": "red", "border-radius": "50%", "position": "absolute", "top": "25vh", "left": "22vw",}}></div>
+                    <div>
+                        <label>Background Color: </label>
+                        <input type="color" value={this.state.backcolor} onChange={e => this.setBackColor(e.target.value)}/>
+                    </div>
+                    <div>
+                        <label>"Glass" Color: </label>
+                        <input type="color" value={this.state.glasscolor} onChange={e => this.setGlassColor(e.target.value)}/>
+                    </div>
+                </div>
             )
         }
     }
@@ -15,6 +62,7 @@
         document.getElementById("root")
     )
 </script>
+
 
 
 
