@@ -51,7 +51,7 @@
                     </div>
                     <div>
                         <label>"Glass" Color: </label>
-                        <input type="color" value={this.state.glasscolor} onChange={e => this.setGlassColor(e.target.value)}/>
+                        <input type="color" value={this.state.glasscolor.slice(0, this.state.glasscolor.length - 2)} onChange={e => this.setGlassColor(e.target.value)}/>
                     </div>
                 </div>
             )
